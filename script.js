@@ -93,15 +93,17 @@ if (beginButton && openingPage && loadingPage) {
     beginButton.setAttribute('disabled', '');
 
     window.setTimeout(() => {
-      loadingPage.hidden = false;
+      // Make the handoff explicit instead of relying only on the hidden attribute.
       openingPage.hidden = true;
+      openingPage.style.display = 'none';
 
-      // Page 2 becomes the only visible page, so Page 1 can never peek above it.
-      window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+      loadingPage.hidden = false;
+      loadingPage.style.display = 'grid';
 
       window.requestAnimationFrame(() => {
+        loadingPage.scrollIntoView({ behavior: 'auto', block: 'start' });
         runLoadingSequence();
       });
-    }, 520);
+    }, 420);
   });
 }
