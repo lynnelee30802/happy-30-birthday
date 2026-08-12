@@ -54,8 +54,38 @@
       </div>
     </section>
 
-    <!-- Page 2 will be inserted here after Page 1 is confirmed. -->
-    <section id="loading-memories" class="page-placeholder" aria-hidden="true"></section>
+    <!-- Page 2 | Loading Memories -->
+    <section class="page page-loading" id="loading-memories" aria-labelledby="loading-title">
+      <div class="loading-blob loading-blob--pink" aria-hidden="true"></div>
+      <div class="loading-blob loading-blob--blue" aria-hidden="true"></div>
+      <span class="loading-spark loading-spark--one" aria-hidden="true">✦</span>
+      <span class="loading-spark loading-spark--two" aria-hidden="true">✧</span>
+
+      <div class="loading-shell">
+        <p class="loading-kicker">MEMORY ARCHIVE</p>
+        <h2 class="loading-title" id="loading-title">Loading Memories...</h2>
+
+        <div class="loading-interface" aria-live="polite">
+          <div class="loading-meta">
+            <span class="loading-status" id="loadingStatus">Loading memories...</span>
+            <span class="loading-percent" id="loadingPercent">0%</span>
+          </div>
+
+          <div class="loading-track" role="progressbar" aria-label="Loading memories" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="loadingTrack">
+            <span class="loading-bar" id="loadingBar"></span>
+          </div>
+        </div>
+
+        <div class="loading-complete" id="loadingComplete" aria-hidden="true">
+          <span class="loading-check" aria-hidden="true">✓</span>
+          <p class="loading-done">Done.</p>
+          <p class="loading-ready">Your story is ready.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Page 3 will be inserted here after Page 2 is confirmed. -->
+    <section id="our-story" class="page-placeholder" aria-hidden="true"></section>
   </main>
 
   <script src="./script.js"></script>
