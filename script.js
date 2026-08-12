@@ -15,11 +15,10 @@ let loadingStarted = false;
 
 const loadingSequence = [
   { at: 0, text: 'Loading memories...' },
-  { at: 650, text: 'Analyzing questionable decisions...' },
-  { at: 1320, text: 'Finding our best photos...' },
-  { at: 1980, text: 'Preparing Chapter 30...' },
-  { at: 2760, text: 'Done.' },
-  { at: 3200, text: 'Your story is ready.' },
+  { at: 1050, text: 'Finding our best photos...' },
+  { at: 2150, text: 'Preparing Chapter 30...' },
+  { at: 3100, text: 'Done.' },
+  { at: 3550, text: 'Your story is ready.' },
 ];
 
 function changeLoadingMessage(text, isFirst = false) {
@@ -35,7 +34,7 @@ function changeLoadingMessage(text, isFirst = false) {
   window.setTimeout(() => {
     loadingMessage.textContent = text;
     loadingMessage.classList.remove('is-switching');
-  }, 180);
+  }, 260);
 }
 
 function runLoadingSequence() {
@@ -44,13 +43,13 @@ function runLoadingSequence() {
 
   loadingPage.classList.add('is-active');
 
-  const progressDuration = 2900;
+  const progressDuration = 3100;
   const start = performance.now();
 
   function animateProgress(now) {
     const elapsed = now - start;
     const progress = Math.min(elapsed / progressDuration, 1);
-    const eased = 1 - Math.pow(1 - progress, 2.2);
+    const eased = 1 - Math.pow(1 - progress, 2);
     const percent = eased * 100;
 
     if (loadingFill) loadingFill.style.width = `${percent}%`;
@@ -83,7 +82,7 @@ function runLoadingSequence() {
     if (storyPage && storyPage.offsetHeight > 0) {
       storyPage.scrollIntoView({ behavior: 'smooth' });
     }
-  }, 3900);
+  }, 4550);
 }
 
 if (beginButton && openingPage && loadingPage) {
@@ -95,16 +94,14 @@ if (beginButton && openingPage && loadingPage) {
 
     window.setTimeout(() => {
       loadingPage.hidden = false;
+      openingPage.hidden = true;
+
+      // Page 2 becomes the only visible page, so Page 1 can never peek above it.
+      window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
 
       window.requestAnimationFrame(() => {
-        loadingPage.scrollIntoView({ behavior: 'smooth' });
-
-        window.setTimeout(() => {
-          runLoadingSequence();
-          openingPage.classList.remove('is-leaving');
-          beginButton.removeAttribute('disabled');
-        }, 420);
+        runLoadingSequence();
       });
-    }, 480);
+    }, 520);
   });
 }
