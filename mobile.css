@@ -58,7 +58,7 @@ body {
     display: flex;
     width: fit-content;
     min-width: 128px;
-    margin: 1rem auto 0;
+    margin: 1.32rem auto 0;
   }
 
   .opening-visual {
@@ -87,11 +87,11 @@ body {
   }
 
   .photo-sticker--top {
-    top: -0.78rem;
-    right: -0.05rem;
+    top: -0.34rem;
+    right: -0.38rem;
     padding: 0.54rem 0.72rem;
     font-size: 0.62rem;
-    transform: rotate(7deg);
+    transform: rotate(8deg);
   }
 
   .doodle--star {
@@ -138,65 +138,60 @@ body {
     max-width: 310px;
   }
 
-  /* Softer mobile entrance choreography */
+  /* One continuous, overlapping entrance rather than stepped reveals. */
   .reveal {
     opacity: 0;
-    transform: translateY(8px) scale(0.995);
-    animation: openingReveal 980ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    transform: translateY(5px);
+    animation: openingReveal 1350ms cubic-bezier(0.22, 0.78, 0.22, 1) forwards;
     will-change: opacity, transform;
   }
 
   .reveal--1 { animation-delay: 80ms; }
-  .reveal--2 { animation-delay: 210ms; }
-  .reveal--3 { animation-delay: 340ms; }
-  .reveal--4 { animation-delay: 470ms; }
-  .reveal--5 { animation-delay: 720ms; }
+  .reveal--2 { animation-delay: 150ms; }
+  .reveal--3 { animation-delay: 220ms; }
+  .reveal--4 { animation-delay: 300ms; }
+  .reveal--5 { animation-delay: 430ms; }
 
   .opening-visual.reveal {
-    transform: translateY(12px) rotate(0.7deg) scale(0.992);
+    transform: translateY(8px) rotate(0.7deg) scale(0.996);
   }
 
   .opening-visual.reveal.reveal--4 {
     animation-name: openingPhotoReveal;
-    animation-duration: 1100ms;
+    animation-duration: 1500ms;
   }
 
+  /* Sticker belongs to the photo, so it enters as part of the same visual. */
   .reveal-sticker {
-    opacity: 0;
-    transform: rotate(3deg) scale(0.96);
-    animation: stickerReveal 760ms cubic-bezier(0.16, 1, 0.3, 1) 700ms forwards;
+    opacity: 1;
+    animation: none;
   }
 
   @keyframes openingReveal {
     0% {
       opacity: 0;
-      transform: translateY(8px) scale(0.995);
+      transform: translateY(5px);
+    }
+    35% {
+      opacity: 0.35;
     }
     100% {
       opacity: 1;
-      transform: translateY(0) scale(1);
+      transform: translateY(0);
     }
   }
 
   @keyframes openingPhotoReveal {
     0% {
       opacity: 0;
-      transform: translateY(12px) rotate(0.7deg) scale(0.992);
+      transform: translateY(8px) rotate(0.7deg) scale(0.996);
+    }
+    35% {
+      opacity: 0.3;
     }
     100% {
       opacity: 1;
       transform: translateY(0) rotate(0.7deg) scale(1);
-    }
-  }
-
-  @keyframes stickerReveal {
-    0% {
-      opacity: 0;
-      transform: rotate(3deg) scale(0.96);
-    }
-    100% {
-      opacity: 1;
-      transform: rotate(7deg) scale(1);
     }
   }
 }
@@ -218,7 +213,7 @@ body {
 
   #beginButton {
     min-height: 44px;
-    margin-top: 0.8rem;
+    margin-top: 1.12rem;
     padding: 0.72rem 1.18rem;
   }
 
@@ -247,7 +242,7 @@ body {
   }
 
   #beginButton {
-    margin-top: 0.6rem;
+    margin-top: 0.9rem;
   }
 
   .opening-visual {
