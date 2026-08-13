@@ -6,8 +6,8 @@
   <meta name="theme-color" content="#FAF3E8" />
   <meta name="description" content="A small birthday gift for Chapter 30." />
   <title>Happy 30th Birthday</title>
-  <link rel="stylesheet" href="./style.css?v=20260813-01" />
-  <link rel="stylesheet" href="./mobile.css?v=20260813-01" />
+  <link rel="stylesheet" href="./style.css?v=20260814-02" />
+  <link rel="stylesheet" href="./mobile.css?v=20260814-02" />
 </head>
 <body>
   <main id="app">
@@ -53,10 +53,19 @@
 
     <!-- Page 2 | Loading Memories -->
     <section class="page page-loading" id="loading-memories" aria-live="polite" hidden>
+      <div class="loading-blob loading-blob--pink" aria-hidden="true"></div>
+      <div class="loading-blob loading-blob--blue" aria-hidden="true"></div>
       <span class="loading-spark loading-spark--left" aria-hidden="true">✦</span>
       <span class="loading-spark loading-spark--right" aria-hidden="true">✧</span>
 
       <div class="loading-shell">
+        <div class="ready-icon" aria-hidden="true">
+          <span class="ready-card ready-card--back"></span>
+          <span class="ready-card ready-card--front"></span>
+          <span class="ready-icon-spark ready-icon-spark--one">✦</span>
+          <span class="ready-icon-spark ready-icon-spark--two">✧</span>
+        </div>
+
         <p class="loading-message" id="loadingMessage">Loading memories...</p>
 
         <div class="loading-track" id="loadingTrack" role="progressbar" aria-label="Loading memories" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
@@ -71,6 +80,6 @@
     <section id="our-story" class="page-placeholder" aria-hidden="true"></section>
   </main>
 
-  <script src="./script.js?v=20260813-01"></script>
+  <script src="./script.js?v=20260814-02"></script>
 </body>
 </html>
