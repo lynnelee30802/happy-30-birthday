@@ -9,11 +9,11 @@ const storyPage = document.querySelector('#our-story');
 let loadingStarted = false;
 
 const loadingSequence = [
-  { at: 0, text: 'Loading memories...', progress: 30 },
-  { at: 1250, text: 'Finding our best photos...', progress: 65 },
-  { at: 2600, text: 'Preparing Chapter 30...', progress: 92 },
-  { at: 3950, text: 'Done.', progress: 100 },
-  { at: 4450, text: 'Your story is ready.', ready: true },
+  { at: 0, text: 'Loading memories...', progress: 25 },
+  { at: 1250, text: 'Finding our best photos...', progress: 50 },
+  { at: 2500, text: 'Preparing Chapter 30...', progress: 75 },
+  { at: 3750, text: 'Done.', progress: 100 },
+  { at: 4910, text: 'Your story is ready.', ready: true },
 ];
 
 function changeLoadingMessage(text, isFirst = false) {
@@ -52,7 +52,7 @@ function runLoadingSequence() {
     if (storyPage && storyPage.offsetHeight > 0) {
       storyPage.scrollIntoView({ behavior: 'smooth' });
     }
-  }, 5350);
+  }, 5900);
 }
 
 if (beginButton && openingPage && loadingPage) {
