@@ -1,8 +1,3 @@
-/* =========================================================
-   HAPPY 30 — SHARED JAVASCRIPT
-   Keep interactions lightweight and progressive.
-   ========================================================= */
-
 const beginButton = document.querySelector('#beginButton');
 const openingPage = document.querySelector('#opening');
 const loadingPage = document.querySelector('#loading-memories');
@@ -14,89 +9,61 @@ const storyPage = document.querySelector('#our-story');
 let loadingStarted = false;
 
 const loadingSequence = [
-  { at: 0, text: 'Loading memories...' },
-  { at: 1050, text: 'Finding our best photos...' },
-  { at: 2150, text: 'Preparing Chapter 30...' },
-  { at: 3100, text: 'Done.' },
-  { at: 3550, text: 'Your story is ready.' },
+  { at: 0, text: 'Loading memories...', progress: 30 },
+  { at: 1250, text: 'Finding our best photos...', progress: 65 },
+  { at: 2600, text: 'Preparing Chapter 30...', progress: 92 },
+  { at: 3950, text: 'Done.', progress: 100 },
+  { at: 4450, text: 'Your story is ready.', ready: true },
 ];
 
 function changeLoadingMessage(text, isFirst = false) {
   if (!loadingMessage) return;
-
   if (isFirst) {
     loadingMessage.textContent = text;
     return;
   }
-
   loadingMessage.classList.add('is-switching');
-
   window.setTimeout(() => {
     loadingMessage.textContent = text;
     loadingMessage.classList.remove('is-switching');
   }, 260);
 }
 
+function setProgress(value) {
+  if (loadingFill) loadingFill.style.width = `${value}%`;
+  if (loadingTrack) loadingTrack.setAttribute('aria-valuenow', String(value));
+}
+
 function runLoadingSequence() {
   if (loadingStarted || !loadingPage) return;
   loadingStarted = true;
-
   loadingPage.classList.add('is-active');
-
-  const progressDuration = 3100;
-  const start = performance.now();
-
-  function animateProgress(now) {
-    const elapsed = now - start;
-    const progress = Math.min(elapsed / progressDuration, 1);
-    const eased = 1 - Math.pow(1 - progress, 2);
-    const percent = eased * 100;
-
-    if (loadingFill) loadingFill.style.width = `${percent}%`;
-    if (loadingTrack) loadingTrack.setAttribute('aria-valuenow', String(Math.round(percent)));
-
-    if (progress < 1) {
-      window.requestAnimationFrame(animateProgress);
-    }
-  }
-
-  window.requestAnimationFrame(animateProgress);
+  setProgress(0);
 
   loadingSequence.forEach((step, index) => {
     window.setTimeout(() => {
       changeLoadingMessage(step.text, index === 0);
-
-      if (step.text === 'Done.') {
-        if (loadingFill) loadingFill.style.width = '100%';
-        if (loadingTrack) loadingTrack.setAttribute('aria-valuenow', '100');
-      }
-
-      if (step.text === 'Your story is ready.') {
-        loadingPage.classList.add('is-ready');
-      }
+      if (typeof step.progress === 'number') setProgress(step.progress);
+      if (step.ready) loadingPage.classList.add('is-ready');
     }, step.at);
   });
 
-  // Page 3 is still a placeholder. Once Page 3 is built, this becomes the automatic handoff.
   window.setTimeout(() => {
     if (storyPage && storyPage.offsetHeight > 0) {
       storyPage.scrollIntoView({ behavior: 'smooth' });
     }
-  }, 4550);
+  }, 5350);
 }
 
 if (beginButton && openingPage && loadingPage) {
   beginButton.addEventListener('click', () => {
     if (openingPage.classList.contains('is-leaving')) return;
-
     openingPage.classList.add('is-leaving');
     beginButton.setAttribute('disabled', '');
 
     window.setTimeout(() => {
-      // Make the handoff explicit instead of relying only on the hidden attribute.
       openingPage.hidden = true;
       openingPage.style.display = 'none';
-
       loadingPage.hidden = false;
       loadingPage.style.display = 'grid';
 
