@@ -1,0 +1,297 @@
+/* =========================================================
+   PAGE 3 — OUR STORY
+   Isolated styles so Pages 1–2 stay untouched.
+   ========================================================= */
+
+.page-story {
+  position: relative;
+  min-height: 100svh;
+  overflow: hidden;
+  background: var(--color-cream, #F7F1E8);
+  color: var(--color-ink, #332D29);
+}
+
+.story-shell {
+  position: relative;
+  width: min(100%, 760px);
+  margin: 0 auto;
+  padding: 5.5rem 1.15rem 7rem;
+}
+
+.story-intro {
+  position: relative;
+  max-width: 560px;
+  margin: 0 auto 7rem;
+  text-align: center;
+}
+
+.story-kicker {
+  margin: 0 0 0.9rem;
+  color: var(--color-caramel, #A66E4A);
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.story-title {
+  max-width: 10ch;
+  margin: 0 auto;
+  font-family: var(--font-display);
+  font-size: clamp(2.7rem, 11vw, 5rem);
+  font-weight: 500;
+  line-height: 0.96;
+  letter-spacing: -0.045em;
+  text-wrap: balance;
+}
+
+.story-subtitle {
+  margin: 1.2rem 0 0;
+  color: var(--color-ink-soft, #756B63);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.story-doodle {
+  position: absolute;
+  color: var(--color-caramel, #A66E4A);
+  opacity: 0.66;
+  pointer-events: none;
+}
+
+.story-doodle--one {
+  top: 13%;
+  left: 5%;
+  font-size: 1rem;
+  transform: rotate(-12deg);
+}
+
+.story-doodle--two {
+  right: 7%;
+  bottom: 10%;
+  font-size: 1.35rem;
+  transform: rotate(10deg);
+}
+
+.story-chapters {
+  display: grid;
+  gap: clamp(8rem, 19vh, 11rem);
+}
+
+.story-chapter {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  text-align: center;
+}
+
+.story-copy {
+  width: min(100%, 540px);
+  margin: 0 auto 2.1rem;
+}
+
+.chapter-label {
+  margin: 0 0 0.7rem;
+  color: var(--color-caramel, #A66E4A);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.chapter-title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 8vw, 3.2rem);
+  font-weight: 500;
+  line-height: 1.02;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+}
+
+.chapter-body {
+  margin: 1.2rem auto 0;
+  color: var(--color-ink-soft, #756B63);
+  font-size: clamp(0.94rem, 3.8vw, 1.05rem);
+  line-height: 1.85;
+}
+
+.chapter-body p {
+  margin: 0;
+}
+
+.chapter-body p + p {
+  margin-top: 0.62rem;
+}
+
+.story-photo {
+  position: relative;
+  width: min(80vw, 420px);
+  margin: 0;
+  padding: 7px 7px 30px;
+  border-radius: 9px;
+  background: var(--color-paper, #FFFDF9);
+  box-shadow: 0 18px 42px rgba(73, 58, 48, 0.13);
+  transform-origin: center center;
+}
+
+.story-photo img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: 4px;
+  background: var(--color-paper, #FFFDF9);
+}
+
+.story-chapter--left .story-photo {
+  justify-self: start;
+  margin-left: 2%;
+  transform: rotate(-1.35deg);
+}
+
+.story-chapter--right .story-photo {
+  justify-self: end;
+  margin-right: 2%;
+  transform: rotate(1.35deg);
+}
+
+.story-chapter:nth-child(2) .story-photo img,
+.story-chapter:nth-child(5) .story-photo img {
+  aspect-ratio: 4 / 5.15;
+}
+
+.story-chapter:nth-child(3) .story-photo img {
+  aspect-ratio: 4 / 4.7;
+}
+
+.story-chapter:nth-child(4) .story-photo img {
+  aspect-ratio: 4 / 3.45;
+}
+
+.story-chapter:nth-child(6) .story-photo img {
+  aspect-ratio: 4 / 5.15;
+}
+
+.story-photo::after {
+  content: "";
+  position: absolute;
+  right: 18px;
+  bottom: 12px;
+  width: 34px;
+  height: 1px;
+  background: rgba(166, 110, 74, 0.34);
+}
+
+/* Scroll reveal. */
+.story-reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 820ms cubic-bezier(0.22, 0.78, 0.22, 1),
+    transform 820ms cubic-bezier(0.22, 0.78, 0.22, 1);
+}
+
+.story-photo.story-reveal {
+  transition-delay: 170ms;
+}
+
+.story-chapter--left .story-photo.story-reveal {
+  transform: translateY(20px) translateX(-8px) rotate(-1.35deg) scale(0.985);
+}
+
+.story-chapter--right .story-photo.story-reveal {
+  transform: translateY(20px) translateX(8px) rotate(1.35deg) scale(0.985);
+}
+
+.story-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.story-chapter--left .story-photo.story-reveal.is-visible {
+  transform: translateY(0) translateX(0) rotate(-1.35deg) scale(1);
+}
+
+.story-chapter--right .story-photo.story-reveal.is-visible {
+  transform: translateY(0) translateX(0) rotate(1.35deg) scale(1);
+}
+
+/* Missing-image fallback while photo assets are being added. */
+.story-photo img:not([src]),
+.story-photo img[src=""] {
+  min-height: 340px;
+}
+
+@media (min-width: 821px) {
+  .story-shell {
+    padding-top: 8rem;
+    padding-bottom: 10rem;
+  }
+
+  .story-intro {
+    margin-bottom: 9rem;
+  }
+
+  .story-copy {
+    margin-bottom: 2.8rem;
+  }
+
+  .story-photo {
+    width: min(54vw, 440px);
+  }
+
+  .story-chapter--left .story-photo {
+    margin-left: 8%;
+  }
+
+  .story-chapter--right .story-photo {
+    margin-right: 8%;
+  }
+}
+
+@media (max-width: 480px) {
+  .story-shell {
+    padding: 4.8rem 0.95rem 6.5rem;
+  }
+
+  .story-intro {
+    margin-bottom: 6rem;
+  }
+
+  .story-title {
+    font-size: clamp(2.55rem, 12vw, 3.55rem);
+  }
+
+  .story-chapters {
+    gap: 7.8rem;
+  }
+
+  .story-copy {
+    margin-bottom: 1.8rem;
+  }
+
+  .chapter-title {
+    font-size: clamp(1.9rem, 9.2vw, 2.65rem);
+  }
+
+  .chapter-body {
+    font-size: 0.92rem;
+    line-height: 1.8;
+  }
+
+  .story-photo {
+    width: min(79vw, 330px);
+    padding: 6px 6px 27px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .story-reveal,
+  .story-photo.story-reveal {
+    opacity: 1;
+    transform: none !important;
+    transition: none !important;
+  }
+}
