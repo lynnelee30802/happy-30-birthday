@@ -111,3 +111,28 @@ if (beginButton && openingPage && loadingPage) {
     }, 420);
   });
 }
+
+/* Page 3 only — reveal story copy and photos as they enter the viewport. */
+const storyRevealItems = document.querySelectorAll('.story-reveal');
+
+if (storyRevealItems.length) {
+  if ('IntersectionObserver' in window) {
+    const storyObserver = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        });
+      },
+      {
+        threshold: 0.18,
+        rootMargin: '0px 0px -8% 0px',
+      }
+    );
+
+    storyRevealItems.forEach((item) => storyObserver.observe(item));
+  } else {
+    storyRevealItems.forEach((item) => item.classList.add('is-visible'));
+  }
+}
