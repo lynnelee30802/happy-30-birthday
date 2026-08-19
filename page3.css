@@ -102,11 +102,11 @@
 
 .chapter-title {
   margin: 0;
-  font-family: var(--font-display);
-  font-size: clamp(2rem, 8vw, 3.2rem);
-  font-weight: 500;
-  line-height: 1.02;
-  letter-spacing: -0.035em;
+  font-family: ui-rounded, "SF Pro Rounded", "Arial Rounded MT Bold", var(--font-body);
+  font-size: clamp(1.9rem, 7.2vw, 2.85rem);
+  font-weight: 700;
+  line-height: 1.04;
+  letter-spacing: -0.038em;
   text-wrap: balance;
 }
 
@@ -127,12 +127,12 @@
 
 .story-photo {
   position: relative;
-  width: min(80vw, 420px);
+  width: min(68vw, 340px);
   margin: 0;
-  padding: 7px 7px 30px;
+  padding: 7px 7px 28px;
   border-radius: 9px;
   background: var(--color-paper, #FFFDF9);
-  box-shadow: 0 18px 42px rgba(73, 58, 48, 0.13);
+  box-shadow: 0 16px 36px rgba(73, 58, 48, 0.12);
   transform-origin: center center;
 }
 
@@ -147,13 +147,13 @@
 
 .story-chapter--left .story-photo {
   justify-self: start;
-  margin-left: 2%;
+  margin-left: 5%;
   transform: rotate(-1.35deg);
 }
 
 .story-chapter--right .story-photo {
   justify-self: end;
-  margin-right: 2%;
+  margin-right: 5%;
   transform: rotate(1.35deg);
 }
 
@@ -178,8 +178,8 @@
   content: "";
   position: absolute;
   right: 18px;
-  bottom: 12px;
-  width: 34px;
+  bottom: 11px;
+  width: 30px;
   height: 1px;
   background: rgba(166, 110, 74, 0.34);
 }
@@ -218,10 +218,9 @@
   transform: translateY(0) translateX(0) rotate(1.35deg) scale(1);
 }
 
-/* Missing-image fallback while photo assets are being added. */
 .story-photo img:not([src]),
 .story-photo img[src=""] {
-  min-height: 340px;
+  min-height: 280px;
 }
 
 @media (min-width: 821px) {
@@ -239,15 +238,15 @@
   }
 
   .story-photo {
-    width: min(54vw, 440px);
+    width: min(42vw, 360px);
   }
 
   .story-chapter--left .story-photo {
-    margin-left: 8%;
+    margin-left: 12%;
   }
 
   .story-chapter--right .story-photo {
-    margin-right: 8%;
+    margin-right: 12%;
   }
 }
 
@@ -273,7 +272,7 @@
   }
 
   .chapter-title {
-    font-size: clamp(1.9rem, 9.2vw, 2.65rem);
+    font-size: clamp(1.72rem, 7.7vw, 2.25rem);
   }
 
   .chapter-body {
@@ -282,8 +281,8 @@
   }
 
   .story-photo {
-    width: min(79vw, 330px);
-    padding: 6px 6px 27px;
+    width: min(66vw, 270px);
+    padding: 6px 6px 25px;
   }
 }
 
