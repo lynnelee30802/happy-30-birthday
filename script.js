@@ -93,9 +93,15 @@ function runLoadingSequence() {
   });
 
   window.setTimeout(() => {
-    if (storyPage && storyPage.offsetHeight > 0) {
-      storyPage.scrollIntoView({ behavior: 'smooth' });
-    }
+    if (!storyPage) return;
+
+    loadingPage.hidden = true;
+    loadingPage.style.display = 'none';
+    storyPage.hidden = false;
+
+    window.requestAnimationFrame(() => {
+      storyPage.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
   }, 6200);
 }
 
@@ -137,6 +143,7 @@ const storyChapters = [
     body: '<p>高一時其實沒有很熟，<br />高二再次同班後，不知不覺就變得很好。</p><p>那時候的我們，無話不談。</p>',
     image: './images/chapter-01.jpg',
     alt: '高中時期的我們',
+    fit: 'cover',
   },
   {
     label: 'Chapter 02',
@@ -144,6 +151,7 @@ const storyChapters = [
     body: '<p>已經不記得為什麼去了台中，<br />只記得一路吃吃喝喝、瘋狂拍照。</p><p>當然還少不了當時最流行的魚眼鏡頭。</p>',
     image: './images/chapter-02.jpg',
     alt: '第一次一起去台中的旅行',
+    fit: 'contain',
   },
   {
     label: 'Chapter 03',
@@ -151,6 +159,7 @@ const storyChapters = [
     body: '<p>不知道當時哪來的勇氣，<br />就這樣決定一起去韓國自助旅行。</p><p>我負責所有行程，居然也一路順利完成了。</p>',
     image: './images/chapter-03.jpg',
     alt: '第一次一起出國去韓國',
+    fit: 'cover',
   },
   {
     label: 'Chapter 04',
@@ -158,6 +167,7 @@ const storyChapters = [
     body: '<p>知道妳要去北海道交換，<br />我立刻跟妳約好一定要見到面。</p><p>只希望在離家很遠的地方，妳不會覺得孤單。</p>',
     image: './images/chapter-04.jpg',
     alt: '北海道交換時的回憶',
+    fit: 'cover',
   },
   {
     label: 'Chapter 05',
@@ -165,6 +175,7 @@ const storyChapters = [
     body: '<p>出發去美國前，<br />大家一起幫妳慶生，也一起幫我送行。</p><p>吹氣球、吃蛋糕、拍照，最後再深深抱一下。</p>',
     image: './images/chapter-05.jpg?v=20260819-02',
     alt: '出發去美國前的生日與送行',
+    fit: 'cover',
   },
   {
     label: 'Chapter 06',
@@ -172,8 +183,14 @@ const storyChapters = [
     body: '<p>抽中 Lady Gaga 的門票後，<br />我立刻問妳要不要一起去東京，妳也立刻答應。</p><p>這次依舊為了美食奔波，只是換妳負責帶路。</p>',
     image: './images/chapter-06.jpg',
     alt: '2026 東京旅行的我們',
+    fit: 'cover',
   },
 ];
+
+storyChapters.forEach((chapter) => {
+  const image = new Image();
+  image.src = chapter.image;
+});
 
 let currentStoryChapter = 0;
 let storySwitching = false;
@@ -187,6 +204,7 @@ function renderStoryChapter(index) {
   chapterBody.innerHTML = chapter.body;
   chapterImage.src = chapter.image;
   chapterImage.alt = chapter.alt;
+  chapterImage.classList.toggle('is-contain', chapter.fit === 'contain');
   storyProgress.textContent = `${index + 1} of ${storyChapters.length}`;
 
   const isLast = index === storyChapters.length - 1;
@@ -223,19 +241,15 @@ if (
     window.setTimeout(() => {
       currentStoryChapter += 1;
       renderStoryChapter(currentStoryChapter);
-      storyCard.classList.remove('is-switching');
-      storyCard.classList.add('is-entering');
 
       window.requestAnimationFrame(() => {
-        window.requestAnimationFrame(() => {
-          storyCard.classList.remove('is-entering');
-        });
+        storyCard.classList.remove('is-switching');
       });
-    }, 280);
+    }, 260);
 
     window.setTimeout(() => {
       storySwitching = false;
       storyNextButton.disabled = false;
-    }, 760);
+    }, 560);
   });
 }
