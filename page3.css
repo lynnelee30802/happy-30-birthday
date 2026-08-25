@@ -13,6 +13,12 @@
   overflow: hidden;
   background: var(--color-cream, #F7F1E8);
   color: var(--color-ink, #332D29);
+  opacity: 1;
+  transition: opacity 420ms ease;
+}
+
+.page-story.is-entering {
+  opacity: 0;
 }
 
 .story-blob {
@@ -65,6 +71,7 @@
   font-weight: 500;
   line-height: 1.1;
   letter-spacing: -0.01em;
+  transform: translateY(1.45rem);
 }
 
 .story-stage {
@@ -266,6 +273,10 @@
     padding-top: 1.3rem;
   }
 
+  .story-section-title {
+    transform: translateY(1.25rem);
+  }
+
   .story-stage {
     padding-top: 2.8rem;
   }
@@ -297,6 +308,10 @@
     padding-top: 0.75rem;
   }
 
+  .story-section-title {
+    transform: translateY(1rem);
+  }
+
   .story-stage {
     padding-top: 1.8rem;
     padding-bottom: 3.25rem;
@@ -323,6 +338,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .page-story,
   .story-card,
   .story-next-button,
   .story-next-arrow {
