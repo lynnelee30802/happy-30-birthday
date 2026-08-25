@@ -70,6 +70,30 @@ function setProgress(value) {
   if (loadingTrack) loadingTrack.setAttribute('aria-valuenow', String(value));
 }
 
+function transitionToStory() {
+  if (!loadingPage || !storyPage) return;
+
+  loadingPage.style.transition = 'opacity 420ms ease';
+  loadingPage.style.opacity = '0';
+
+  window.setTimeout(() => {
+    loadingPage.hidden = true;
+    loadingPage.style.display = 'none';
+    loadingPage.style.removeProperty('transition');
+    loadingPage.style.removeProperty('opacity');
+
+    storyPage.hidden = false;
+    storyPage.classList.add('is-entering');
+    storyPage.scrollIntoView({ behavior: 'auto', block: 'start' });
+
+    window.requestAnimationFrame(() => {
+      window.requestAnimationFrame(() => {
+        storyPage.classList.remove('is-entering');
+      });
+    });
+  }, 420);
+}
+
 function runLoadingSequence() {
   if (loadingStarted || !loadingPage) return;
 
@@ -92,17 +116,7 @@ function runLoadingSequence() {
     }, step.at);
   });
 
-  window.setTimeout(() => {
-    if (!storyPage) return;
-
-    loadingPage.hidden = true;
-    loadingPage.style.display = 'none';
-    storyPage.hidden = false;
-
-    window.requestAnimationFrame(() => {
-      storyPage.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    });
-  }, 6200);
+  window.setTimeout(transitionToStory, 6200);
 }
 
 if (beginButton && openingPage && loadingPage) {
