@@ -63,10 +63,10 @@
   width: min(100%, 680px);
   margin: 0;
   font-family: ui-rounded, "SF Pro Rounded", "Arial Rounded MT Bold", var(--font-body);
-  font-size: clamp(2.45rem, 11vw, 5.2rem);
-  font-weight: 720;
-  line-height: 1.02;
-  letter-spacing: -0.055em;
+  font-size: clamp(2rem, 7.2vw, 3.6rem);
+  font-weight: 620;
+  line-height: 1.14;
+  letter-spacing: -0.035em;
   text-wrap: balance;
 }
 .because-title span { color: var(--color-caramel, #A66E4A); }
@@ -75,7 +75,11 @@
 .because-spark--one { top: 24%; left: 12%; font-size: .9rem; transform: rotate(-12deg); }
 .because-spark--two { right: 13%; bottom: 25%; font-size: 1.1rem; transform: rotate(10deg); }
 
-.award-content { width: min(100%, 560px); padding: 2rem 0; transform: translateY(-1vh); }
+.award-content {
+  width: min(100%, 560px);
+  padding: 2rem 0 5.5rem;
+  transform: translateY(-2vh);
+}
 .award-icon { display: block; margin-bottom: 1.15rem; font-size: clamp(2.2rem, 9vw, 3.2rem); line-height: 1; }
 .award-content h3 {
   margin: 0;
@@ -93,7 +97,7 @@
 .because-next-button {
   position: absolute;
   left: 50%;
-  bottom: max(1.35rem, env(safe-area-inset-bottom));
+  bottom: max(.85rem, env(safe-area-inset-bottom));
   display: inline-flex;
   align-items: center;
   gap: .42rem;
@@ -117,7 +121,7 @@
 }
 
 @media (max-height: 700px) and (max-width: 820px) {
-  .because-title { font-size: clamp(2.15rem, 10vw, 3rem); }
+  .because-title { font-size: clamp(1.85rem, 7.5vw, 2.5rem); }
   .award-icon { margin-bottom: .9rem; font-size: 2rem; }
   .award-content h3 { font-size: clamp(1.65rem, 7vw, 2.2rem); }
   .award-stars { margin: .7rem 0 1rem; }
