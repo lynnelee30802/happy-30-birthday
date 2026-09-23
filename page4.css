@@ -77,7 +77,7 @@
   animation: becauseLeadIn 520ms ease 160ms forwards;
 }
 .because-title-follow {
-  margin-top: 1.15rem;
+  margin-top: 2rem;
   color: var(--color-caramel, #A66E4A);
   font-size: clamp(1.45rem, 5.6vw, 2.65rem);
   font-weight: 560;
@@ -147,7 +147,7 @@
 
 @media (max-height: 700px) and (max-width: 820px) {
   .because-title-lead { font-size: clamp(1.85rem, 7.5vw, 2.5rem); }
-  .because-title-follow { margin-top: .9rem; font-size: clamp(1.35rem, 5.7vw, 1.9rem); }
+  .because-title-follow { margin-top: 1.5rem; font-size: clamp(1.35rem, 5.7vw, 1.9rem); }
   .award-icon { margin-bottom: .9rem; font-size: 2rem; }
   .award-content h3 { font-size: clamp(1.65rem, 7vw, 2.2rem); }
   .award-stars { margin: .7rem 0 1rem; }
