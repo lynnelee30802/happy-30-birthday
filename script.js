@@ -289,3 +289,21 @@ if (
     }, 560);
   });
 }
+
+
+/* Page 4 — full-screen horizontal Keynote carousel. */
+const becauseTrack = document.querySelector('#becauseTrack');
+const becausePanels = becauseTrack ? Array.from(becauseTrack.querySelectorAll('.because-panel')) : [];
+const becauseNextButtons = becauseTrack ? Array.from(becauseTrack.querySelectorAll('.because-next-button')) : [];
+
+becauseNextButtons.forEach((button) => {
+  button.addEventListener('click', () => {
+    if (!becauseTrack) return;
+    const panel = button.closest('.because-panel');
+    const index = becausePanels.indexOf(panel);
+    const nextPanel = becausePanels[index + 1];
+    if (nextPanel) {
+      nextPanel.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+    }
+  });
+});
