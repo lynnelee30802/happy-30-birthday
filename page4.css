@@ -96,6 +96,11 @@
   padding: 2rem 0 5.5rem;
   transform: translateY(-2vh);
 }
+
+/* Travel Buddy has more copy; align its top edge with the shorter award cards. */
+.award-panel--travel .award-content {
+  transform: translateY(-2vh) translateY(1.8rem);
+}
 .award-icon { display: block; margin-bottom: 1.15rem; font-size: clamp(2.2rem, 9vw, 3.2rem); line-height: 1; }
 .award-content h3 {
   margin: 0;
