@@ -59,7 +59,7 @@
   display: grid;
   place-items: center;
   min-height: 0;
-  padding: 1rem 0 4.2rem;
+  padding: 3.2rem 0 2rem;
 }
 
 .story-card {
@@ -250,7 +250,8 @@
   }
 
   .story-stage {
-    padding-top: 1rem;
+    padding-top: 3rem;
+    padding-bottom: 1rem;
   }
 
   .story-card {
@@ -276,8 +277,8 @@
   }
 
   .story-stage {
-    padding-top: 0.4rem;
-    padding-bottom: 3.25rem;
+    padding-top: 1.5rem;
+    padding-bottom: 1.6rem;
   }
 
   .story-card {
