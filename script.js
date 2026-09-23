@@ -13,6 +13,7 @@ const loadingMessage = document.querySelector('#loadingMessage');
 const loadingFill = document.querySelector('#loadingFill');
 const loadingTrack = document.querySelector('#loadingTrack');
 const storyPage = document.querySelector('#our-story');
+const becausePage = document.querySelector('#because-of-you');
 
 let loadingStarted = false;
 
@@ -245,6 +246,27 @@ if (
     if (storySwitching) return;
 
     if (currentStoryChapter >= storyChapters.length - 1) {
+      if (!becausePage) return;
+
+      storyPage.style.transition = 'opacity 420ms ease';
+      storyPage.style.opacity = '0';
+
+      window.setTimeout(() => {
+        storyPage.hidden = true;
+        storyPage.style.display = 'none';
+        storyPage.style.removeProperty('transition');
+        storyPage.style.removeProperty('opacity');
+
+        becausePage.hidden = false;
+        becausePage.classList.add('is-entering');
+        becausePage.scrollIntoView({ behavior: 'auto', block: 'start' });
+
+        window.requestAnimationFrame(() => {
+          window.requestAnimationFrame(() => {
+            becausePage.classList.remove('is-entering');
+          });
+        });
+      }, 420);
       return;
     }
 
