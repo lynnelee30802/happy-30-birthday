@@ -53,6 +53,7 @@
   height: 100%;
   flex-direction: column;
   justify-content: center;
+  transform: translateY(2.4vh);
   transition: opacity 320ms ease, transform 320ms ease;
 }
 
@@ -82,7 +83,7 @@
 .future-hint {
   margin: .16rem 0 0;
   opacity: 0;
-  animation: futureReveal 460ms ease 980ms forwards;
+  animation: futureReveal 520ms ease 680ms forwards;
   color: rgba(117, 107, 99, .62);
   font-size: .7rem;
   font-style: italic;
@@ -91,7 +92,7 @@
 .future-options {
   display: grid;
   opacity: 0;
-  animation: futureCardsIn 600ms ease 1320ms forwards;
+  animation: futureCardsIn 600ms ease 1240ms forwards;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: .68rem;
   width: calc(100% - 1rem);
@@ -199,7 +200,7 @@
 
 .future-content.is-leaving {
   opacity: 0;
-  transform: translateY(-4px);
+  transform: translateY(calc(2.4vh - 4px));
 }
 
 .future-result {
