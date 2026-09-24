@@ -302,6 +302,7 @@ body {
   .opening-copy {
     margin: 0 0 .5rem;
     text-align: center;
+    transform: translateY(-1.4rem);
   }
 
   .page-opening .display-title {
@@ -322,8 +323,8 @@ body {
   }
 
   .opening-visual {
-    width: min(72vw, 280px);
-    height: min(38svh, 320px);
+    width: min(82vw, 330px);
+    height: min(43svh, 370px);
     margin: .85rem auto 0;
     display: flex;
     align-items: center;
@@ -346,7 +347,7 @@ body {
     align-self: center;
     width: min(70vw, 260px);
     min-height: 56px;
-    margin: 1.35rem auto 0;
+    margin: 2.15rem auto 0;
     padding: .95rem 1.6rem;
     gap: .55rem;
     font-size: 1rem;
@@ -433,14 +434,14 @@ body {
   }
 
   .opening-visual {
-    width: min(56vw, 220px);
-    height: min(34svh, 250px);
+    width: min(64vw, 250px);
+    height: min(37svh, 275px);
   }
 
   #beginButton.opening-begin {
     width: min(64vw, 230px);
     min-height: 48px;
-    margin-top: .55rem;
+    margin-top: 1.15rem;
   }
 
   .loading-shell {
