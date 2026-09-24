@@ -235,7 +235,7 @@ button {
   width: min(100%, 1040px);
   min-height: 100svh;
   margin: 0 auto;
-  padding: clamp(6.5rem, 12svh, 9rem) var(--page-gutter) clamp(2.5rem, 5svh, 4rem);
+  padding: clamp(7.5rem, 15svh, 10rem) var(--page-gutter) clamp(2.5rem, 5svh, 4rem);
 }
 
 .opening-copy {
@@ -270,15 +270,19 @@ button {
 
 .opening-visual {
   position: relative;
+  display: flex;
+  flex: 0 0 auto;
+  justify-content: center;
   width: min(52vw, 460px);
+  height: min(38svh, 360px);
   margin: clamp(1rem, 2.5vh, 1.75rem) auto 0;
 }
 
 .opening-illustration {
   display: block;
-  width: 100%;
-  height: auto;
-  max-height: 48svh;
+  width: auto;
+  max-width: 100%;
+  height: 100%;
   object-fit: contain;
   border: 0;
   background: transparent;
