@@ -1,6 +1,6 @@
 /* =========================================================
    PAGE 4 — BECAUSE OF YOU
-   Full-screen horizontal Keynote carousel. Pages 1–3 untouched.
+   Organic editorial blobs: one continuous, vertical story.
    ========================================================= */
 
 .page-because[hidden] { display: none !important; }
@@ -8,59 +8,31 @@
 .page-because {
   position: relative;
   width: 100%;
-  height: 100svh;
-  overflow: hidden;
+  min-height: 100svh;
+  overflow-x: hidden;
+  overflow-y: auto;
   background: var(--color-cream, #F7F1E8);
   color: var(--color-ink, #332D29);
   opacity: 1;
   transition: opacity 420ms ease;
   isolation: isolate;
 }
-
 .page-because.is-entering { opacity: 0; }
 
-.because-track {
-  display: flex;
-  width: 100%;
-  height: 100%;
-  overflow-x: auto;
-  overflow-y: hidden;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
-  overscroll-behavior-x: contain;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
-  touch-action: pan-x;
+.because-shell {
+  width: min(100%, 760px);
+  margin: 0 auto;
+  padding: max(4.75rem, env(safe-area-inset-top)) 1.15rem max(3rem, calc(env(safe-area-inset-bottom) + 2rem));
 }
-.because-track::-webkit-scrollbar { display: none; }
 
-.because-awards { display: contents; }
-
-.because-blob {
-  position: fixed;
-  z-index: -1;
-  border-radius: 999px;
-  pointer-events: none;
-}
-.because-blob--pink { top: -90px; left: -100px; width: min(70vw, 330px); aspect-ratio: 1; background: rgba(239,217,215,.68); }
-.because-blob--blue { right: -110px; bottom: -100px; width: min(78vw, 360px); aspect-ratio: 1; background: rgba(220,231,234,.72); }
-
-.because-panel {
+.because-hero {
   position: relative;
-  display: grid;
-  flex: 0 0 100%;
-  width: 100%;
-  height: 100svh;
-  min-width: 100%;
-  place-items: center;
-  padding: max(3rem, env(safe-area-inset-top)) 1.25rem max(5.5rem, env(safe-area-inset-bottom));
+  width: min(92%, 620px);
+  margin: 0 auto 3.7rem;
   text-align: center;
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
 }
 
 .because-title {
-  width: min(100%, 680px);
   margin: 0;
   font-family: ui-rounded, "SF Pro Rounded", "Arial Rounded MT Bold", var(--font-body);
   text-wrap: balance;
@@ -69,97 +41,151 @@
 .because-title-follow { display: block; }
 .because-title-lead {
   color: var(--color-ink, #332D29);
-  font-size: clamp(2rem, 7.2vw, 3.6rem);
-  font-weight: 650;
+  font-size: clamp(2rem, 7.2vw, 3.35rem);
+  font-weight: 680;
   line-height: 1.08;
-  letter-spacing: -0.035em;
-  opacity: 0;
-  animation: becauseLeadIn 520ms ease 160ms forwards;
+  letter-spacing: -.035em;
 }
 .because-title-follow {
-  margin-top: 2rem;
+  margin-top: 1rem;
   color: var(--color-caramel, #A66E4A);
-  font-size: clamp(1.45rem, 5.6vw, 2.65rem);
+  font-size: clamp(1.35rem, 5.3vw, 2.35rem);
   font-weight: 560;
-  line-height: 1.2;
-  letter-spacing: -0.025em;
-  opacity: 0;
-  animation: becauseFollowIn 560ms ease 720ms forwards;
+  line-height: 1.22;
+  letter-spacing: -.025em;
 }
 
-.because-spark { position: absolute; color: rgba(166,110,74,.3); pointer-events: none; }
-.because-spark--one { top: 24%; left: 12%; font-size: .9rem; transform: rotate(-12deg); }
-.because-spark--two { right: 13%; bottom: 25%; font-size: 1.1rem; transform: rotate(10deg); }
+.because-spark {
+  position: absolute;
+  color: rgba(166,110,74,.28);
+  pointer-events: none;
+}
+.because-spark--one { top: -1.25rem; left: 2%; font-size: .85rem; transform: rotate(-12deg); }
+.because-spark--two { right: 3%; bottom: -.9rem; font-size: 1rem; transform: rotate(10deg); }
 
-.award-content {
-  width: min(100%, 560px);
-  padding: 2rem 0 5.5rem;
-  transform: translateY(-2vh);
+.because-awards {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 1.5rem;
 }
 
-/* Travel Buddy has more copy; align its top edge with the shorter award cards. */
-.award-panel--travel .award-content {
-  transform: translateY(-2vh) translateY(1.8rem);
+.award-blob {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 255px;
+  padding: 2.25rem 1.7rem;
+  text-align: center;
+  box-shadow: 0 14px 34px rgba(73,58,48,.045);
 }
-.award-icon { display: block; margin-bottom: 1.15rem; font-size: clamp(2.2rem, 9vw, 3.2rem); line-height: 1; }
-.award-content h3 {
-  margin: 0;
+.award-blob--photo {
+  align-self: flex-end;
+  width: min(88%, 410px);
+  min-height: 285px;
+  border-radius: 46% 54% 50% 50% / 43% 46% 54% 57%;
+  background: rgba(239,217,215,.82);
+  transform: translateX(2%);
+}
+.award-blob--food {
+  align-self: flex-start;
+  width: min(76%, 350px);
+  border-radius: 55% 45% 48% 52% / 47% 55% 45% 53%;
+  background: rgba(220,231,234,.88);
+  transform: translateX(-2%);
+}
+.award-blob--travel {
+  align-self: flex-end;
+  width: min(82%, 380px);
+  min-height: 300px;
+  border-radius: 48% 52% 57% 43% / 52% 44% 56% 48%;
+  background: rgba(220,228,215,.9);
+  transform: translateX(3%);
+}
+.award-blob--laugh {
+  align-self: center;
+  width: min(78%, 360px);
+  border-radius: 54% 46% 43% 57% / 46% 54% 48% 52%;
+  background: rgba(255,253,249,.94);
+  transform: translateX(-3%);
+}
+.award-blob--listener {
+  align-self: flex-start;
+  width: min(86%, 400px);
+  min-height: 280px;
+  border-radius: 45% 55% 52% 48% / 55% 44% 56% 45%;
+  background: rgba(239,217,215,.7);
+  transform: translateX(1%);
+}
+
+.award-icon {
+  display: block;
+  margin-bottom: .8rem;
+  font-size: clamp(1.85rem, 7.5vw, 2.55rem);
+  line-height: 1;
+}
+.award-blob h3 {
+  max-width: 14ch;
+  margin: 0 auto;
   font-family: ui-rounded, "SF Pro Rounded", "Arial Rounded MT Bold", var(--font-body);
-  font-size: clamp(1.85rem, 8vw, 3.15rem);
+  font-size: clamp(1.4rem, 6.1vw, 2.1rem);
   font-weight: 700;
-  line-height: 1.06;
-  letter-spacing: -0.04em;
+  line-height: 1.08;
+  letter-spacing: -.035em;
   text-wrap: balance;
 }
-.award-stars { margin: .85rem 0 1.35rem; color: var(--color-caramel, #A66E4A); font-size: .88rem; letter-spacing: .18em; }
-.award-copy { margin: 0; color: var(--color-ink-soft, #756B63); font-size: clamp(1rem, 4.2vw, 1.18rem); line-height: 1.8; }
-.award-copy--travel span { display: inline-block; margin: .38rem 0; color: var(--color-ink, #332D29); font-size: 1.08em; font-weight: 650; }
-
-.because-next-button {
-  position: absolute;
-  left: 50%;
-  bottom: max(1.35rem, calc(env(safe-area-inset-bottom) + .85rem));
-  display: inline-flex;
-  align-items: center;
-  gap: .42rem;
-  min-height: 34px;
-  padding: .48rem .82rem;
-  border-radius: 999px;
+.award-stars {
+  margin: .65rem 0 .9rem;
+  color: var(--color-caramel, #A66E4A);
+  font-size: .72rem;
+  letter-spacing: .16em;
+}
+.award-copy {
+  margin: 0;
+  color: var(--color-ink-soft, #756B63);
+  font-size: clamp(.9rem, 3.8vw, 1.02rem);
+  line-height: 1.7;
+}
+.award-copy--travel span {
+  display: inline-block;
+  margin: .22rem 0;
   color: var(--color-ink, #332D29);
-  background: rgba(255,253,249,.72);
-  box-shadow: 0 5px 14px rgba(73,58,48,.07);
-  font-size: .7rem;
+  font-size: 1.05em;
+  font-weight: 650;
+}
+
+.because-continue-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  width: min(58vw, 220px);
+  min-height: 48px;
+  margin: 3.5rem auto 0;
+  padding: .75rem 1.2rem;
+  border: 0;
+  border-radius: 999px;
+  background: var(--color-ink, #332D29);
+  color: var(--color-paper, #FFFDF9);
+  box-shadow: 0 9px 22px rgba(73,58,48,.12);
+  font-size: .82rem;
   font-weight: 650;
   cursor: pointer;
-  transform: translateX(-50%);
-  -webkit-tap-highlight-color: transparent;
 }
-.because-next-button:active { transform: translateX(-50%) scale(.97); }
-
-@keyframes becauseLeadIn {
-  from { opacity: 0; transform: translateY(4px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-@keyframes becauseFollowIn {
-  from { opacity: 0; transform: translateY(5px); }
-  to { opacity: 1; transform: translateY(0); }
-}
+.because-continue-button:active { transform: scale(.98); }
 
 @media (min-width: 821px) {
-  .because-panel { padding-inline: var(--page-gutter, 5rem); }
-  .award-content { padding: 3rem 0; }
+  .because-shell { padding-inline: 2.5rem; }
+  .because-awards { gap: 1.9rem; }
+  .award-blob { padding-inline: 2.3rem; }
 }
 
 @media (max-height: 700px) and (max-width: 820px) {
-  .because-title-lead { font-size: clamp(1.85rem, 7.5vw, 2.5rem); }
-  .because-title-follow { margin-top: 1.5rem; font-size: clamp(1.35rem, 5.7vw, 1.9rem); }
-  .award-icon { margin-bottom: .9rem; font-size: 2rem; }
-  .award-content h3 { font-size: clamp(1.65rem, 7vw, 2.2rem); }
-  .award-stars { margin: .7rem 0 1rem; }
-  .award-copy { font-size: .92rem; line-height: 1.65; }
+  .because-shell { padding-top: 3.5rem; }
+  .because-hero { margin-bottom: 3rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .page-because, .because-track { transition: none !important; scroll-behavior: auto; }
-  .because-title-lead, .because-title-follow { animation: none !important; opacity: 1; transform: none; }
+  .page-because { transition: none !important; }
 }
