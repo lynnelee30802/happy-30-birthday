@@ -445,9 +445,13 @@ if (letterOpenButton && letterIntro && letterReader && letterPage) {
 
     window.setTimeout(() => {
       letterIntro.hidden = true;
+      letterIntro.style.display = 'none';
       letterReader.hidden = false;
+      letterReader.style.display = 'block';
       letterReader.classList.add('is-entering');
-      window.scrollTo({ top: letterPage.offsetTop, left: 0, behavior: 'auto' });
+
+      letterParagraphs.slice(0, 3).forEach((paragraph) => paragraph.classList.add('is-visible'));
+      letterReader.scrollIntoView({ behavior: 'auto', block: 'start' });
       startLetterReveal();
     }, 380);
   });
