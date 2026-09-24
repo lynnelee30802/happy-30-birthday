@@ -385,14 +385,14 @@ body {
   .reveal {
     opacity: 0;
     transform: translateY(5px);
-    animation: openingReveal 1750ms cubic-bezier(.22, .78, .22, 1) forwards;
+    animation: openingReveal 2200ms ease-out forwards;
     will-change: opacity, transform;
   }
 
-  .reveal--1 { animation-delay: 180ms; }
-  .reveal--2 { animation-delay: 700ms; }
-  .reveal--4 { animation-delay: 1350ms; }
-  .reveal--5 { animation-delay: 2050ms; }
+  .reveal--1 { animation-delay: 80ms; }
+  .reveal--2 { animation-delay: 280ms; }
+  .reveal--4 { animation-delay: 520ms; }
+  .reveal--5 { animation-delay: 760ms; }
 
   .opening-visual.reveal {
     transform: translateY(8px) scale(.996);
@@ -400,7 +400,7 @@ body {
 
   .opening-visual.reveal.reveal--4 {
     animation-name: openingPhotoReveal;
-    animation-duration: 1900ms;
+    animation-duration: 2400ms;
   }
 
   .reveal-sticker {
