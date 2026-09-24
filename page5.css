@@ -63,6 +63,8 @@
 }
 .future-header h2 {
   margin: 0;
+  opacity: 0;
+  animation: futureReveal 520ms ease 120ms forwards;
   font-family: ui-rounded, "SF Pro Rounded", "Arial Rounded MT Bold", var(--font-body);
   font-size: clamp(2rem, 8vw, 3.5rem);
   font-weight: 720;
@@ -71,12 +73,16 @@
 }
 .future-question {
   margin: 1.15rem 0 0;
+  opacity: 0;
+  animation: futureReveal 520ms ease 680ms forwards;
   color: var(--color-ink-soft, #756B63);
   font-size: clamp(.9rem, 3.6vw, 1.05rem);
   line-height: 1.5;
 }
 .future-hint {
   margin: .16rem 0 0;
+  opacity: 0;
+  animation: futureReveal 460ms ease 980ms forwards;
   color: rgba(117, 107, 99, .62);
   font-size: .7rem;
   font-style: italic;
@@ -84,6 +90,8 @@
 
 .future-options {
   display: grid;
+  opacity: 0;
+  animation: futureCardsIn 600ms ease 1320ms forwards;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: .68rem;
   width: calc(100% - 1rem);
@@ -225,6 +233,16 @@
   margin-top: 1.7rem;
 }
 
+@keyframes futureReveal {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes futureCardsIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 @keyframes futureResultIn {
   from { opacity: 0; transform: translateY(5px); }
   to { opacity: 1; transform: translateY(0); }
@@ -260,5 +278,9 @@
   .future-option,
   .future-check,
   .future-save-button { transition: none !important; }
-  .future-result.is-entering { animation: none !important; }
+  .future-result.is-entering,
+  .future-header h2,
+  .future-question,
+  .future-hint,
+  .future-options { animation: none !important; opacity: 1; transform: none; }
 }
