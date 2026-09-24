@@ -1,0 +1,55 @@
+.page-ending {
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  padding: 2rem 1.5rem;
+  background: var(--color-cream, #F7F1E8);
+  color: var(--color-ink, #332D29);
+  text-align: center;
+  opacity: 1;
+  transition: opacity 420ms ease;
+}
+.page-ending[hidden] { display: none !important; }
+.page-ending.is-entering { opacity: 0; }
+.ending-title, .ending-copy, .ending-heart, .ending-last {
+  opacity: 0;
+  transform: translateY(5px);
+}
+.page-ending.is-revealed .ending-title { animation: endingReveal 560ms ease 160ms forwards; }
+.page-ending.is-revealed .ending-copy { animation: endingReveal 560ms ease 620ms forwards; }
+.page-ending.is-revealed .ending-heart { animation: endingReveal 520ms ease 980ms forwards; }
+.page-ending.is-revealed .ending-last { animation: endingReveal 560ms ease 1280ms forwards; }
+.ending-title {
+  margin: 0;
+  font-family: ui-rounded, "SF Pro Rounded", "Arial Rounded MT Bold", var(--font-body);
+  font-size: clamp(2rem, 9vw, 3.4rem);
+  font-weight: 700;
+  letter-spacing: -.035em;
+}
+.ending-copy {
+  margin: 1.2rem 0 0;
+  color: var(--color-ink-soft, #756B63);
+  font-size: clamp(.94rem, 3.9vw, 1.08rem);
+  line-height: 1.65;
+}
+.ending-heart {
+  display: block;
+  margin: 1.3rem 0 1rem;
+  color: var(--color-caramel, #A66E4A);
+  font-size: 1.05rem;
+}
+.ending-last {
+  margin: 0;
+  color: rgba(117, 107, 99, .72);
+  font-size: clamp(.78rem, 3.25vw, .9rem);
+}
+@keyframes endingReveal {
+  to { opacity: 1; transform: translateY(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ending-title, .ending-copy, .ending-heart, .ending-last {
+    opacity: 1;
+    transform: none;
+    animation: none !important;
+  }
+}
