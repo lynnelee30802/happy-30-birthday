@@ -591,3 +591,66 @@ body {
     height: 14px;
   }
 }
+
+
+/* Page 1 balance fix — keep the cover compact around the photo. */
+@media (max-width: 820px) {
+  .opening-shell {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0;
+    padding-top: max(2.5rem, env(safe-area-inset-top));
+    padding-bottom: max(1.5rem, env(safe-area-inset-bottom));
+  }
+
+  .opening-copy {
+    margin-bottom: 1rem;
+  }
+
+  .opening-visual {
+    margin: 0 auto;
+  }
+
+  .opening-begin {
+    position: static;
+    align-self: center;
+    margin: 1.15rem auto 0;
+    transform: none;
+  }
+
+  .opening-begin:hover {
+    transform: none;
+  }
+
+  .opening-begin:active {
+    transform: scale(0.98);
+  }
+}
+
+@media (max-width: 480px) {
+  .opening-shell {
+    padding-top: max(2.25rem, env(safe-area-inset-top));
+    padding-bottom: max(1.25rem, env(safe-area-inset-bottom));
+  }
+
+  #beginButton.opening-begin {
+    min-height: 34px;
+    margin-top: 1.05rem;
+    padding: 0.48rem 0.82rem;
+  }
+}
+
+@media (max-height: 740px) and (max-width: 820px) {
+  .opening-shell {
+    padding-top: max(1.6rem, env(safe-area-inset-top));
+  }
+
+  .opening-copy {
+    margin-bottom: 0.7rem;
+  }
+
+  #beginButton.opening-begin {
+    margin-top: 0.8rem;
+  }
+}
