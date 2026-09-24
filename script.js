@@ -22,7 +22,7 @@ const loadingSequence = [
   { at: 1250, text: 'Finding our best photos...', progress: 50 },
   { at: 2500, text: 'Preparing Chapter 30...', progress: 75 },
   { at: 3750, text: 'Done.', progress: 100 },
-  { at: 4910, text: 'Your story is ready.', ready: true, final: true },
+  { at: 4910, text: 'Our story is ready.', ready: true, final: true },
 ];
 
 function changeLoadingMessage(text, isFirst = false) {
