@@ -1,0 +1,196 @@
+/* =========================================================
+   PAGE 6 — A LETTER
+   Quiet intro, then a naturally scrolling birthday letter.
+   ========================================================= */
+
+.page-letter[hidden] { display: none !important; }
+
+.page-letter {
+  position: relative;
+  width: 100%;
+  min-height: 100svh;
+  overflow: hidden;
+  background: var(--color-cream, #F7F1E8);
+  color: var(--color-ink, #332D29);
+  opacity: 1;
+  transition: opacity 420ms ease;
+  isolation: isolate;
+}
+.page-letter.is-entering { opacity: 0; }
+
+.letter-blob {
+  position: fixed;
+  z-index: -1;
+  border-radius: 999px;
+  pointer-events: none;
+}
+.letter-blob--pink {
+  top: -120px;
+  left: -130px;
+  width: min(76vw, 350px);
+  aspect-ratio: 1;
+  background: rgba(239, 217, 215, .62);
+}
+.letter-blob--blue {
+  right: -130px;
+  bottom: -125px;
+  width: min(84vw, 380px);
+  aspect-ratio: 1;
+  background: rgba(220, 231, 234, .68);
+}
+
+.letter-intro {
+  position: relative;
+  display: grid;
+  width: min(100%, 680px);
+  min-height: 100svh;
+  margin: 0 auto;
+  padding: max(2rem, env(safe-area-inset-top)) 1.3rem max(2rem, env(safe-area-inset-bottom));
+  place-content: center;
+  justify-items: center;
+  text-align: center;
+  transition: opacity 380ms ease;
+}
+.letter-intro.is-leaving { opacity: 0; }
+
+.letter-intro-title,
+.letter-intro-copy,
+.letter-open-button {
+  opacity: 0;
+  transform: translateY(5px);
+}
+.letter-intro-title {
+  margin: 0;
+  font-family: ui-rounded, "SF Pro Rounded", "Arial Rounded MT Bold", var(--font-body);
+  font-size: clamp(2.1rem, 9vw, 3.8rem);
+  font-weight: 720;
+  line-height: 1.04;
+  letter-spacing: -.045em;
+  animation: letterIntroReveal 520ms ease 140ms forwards;
+}
+.letter-intro-copy {
+  margin: 1.05rem 0 0;
+  color: var(--color-ink-soft, #756B63);
+  font-size: clamp(.9rem, 3.7vw, 1.05rem);
+  line-height: 1.5;
+  animation: letterIntroReveal 520ms ease 940ms forwards;
+}
+.letter-open-button,
+.letter-continue-button {
+  display: inline-flex;
+  align-items: center;
+  gap: .38rem;
+  min-height: 34px;
+  padding: .48rem .82rem;
+  border: 0;
+  border-radius: 999px;
+  color: var(--color-ink, #332D29);
+  background: rgba(255, 253, 249, .78);
+  box-shadow: 0 5px 14px rgba(73, 58, 48, .07);
+  font-family: var(--font-body);
+  font-size: .7rem;
+  font-weight: 650;
+  cursor: pointer;
+}
+.letter-open-button {
+  margin-top: 1.65rem;
+  animation: letterIntroReveal 480ms ease 2140ms forwards;
+}
+.letter-open-button:active,
+.letter-continue-button:active { transform: scale(.97); }
+
+.letter-spark {
+  position: absolute;
+  color: rgba(166, 110, 74, .34);
+  pointer-events: none;
+}
+.letter-spark--one { top: 29%; left: 15%; font-size: .78rem; }
+.letter-spark--two { right: 16%; bottom: 29%; font-size: .66rem; }
+
+.letter-reader {
+  width: 100%;
+  min-height: 100svh;
+  padding: max(1.4rem, env(safe-area-inset-top)) .9rem max(2rem, env(safe-area-inset-bottom));
+  overflow: visible;
+}
+.letter-reader[hidden] { display: none !important; }
+.letter-reader.is-entering { animation: letterReaderIn 520ms ease both; }
+
+.letter-paper {
+  width: min(100%, 660px);
+  margin: 0 auto;
+  padding: clamp(2rem, 8vw, 3.8rem) clamp(1.35rem, 6vw, 3.6rem) 2.2rem;
+  border: 1px solid rgba(51, 45, 41, .055);
+  border-radius: 18px;
+  background: rgba(255, 253, 249, .9);
+  box-shadow: 0 14px 42px rgba(73, 58, 48, .07);
+}
+
+.letter-paragraph {
+  margin: 0 0 1.45rem;
+  color: var(--color-ink, #332D29);
+  font-size: clamp(.91rem, 3.65vw, 1.02rem);
+  line-height: 1.9;
+  letter-spacing: .01em;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 560ms ease, transform 560ms ease;
+}
+.letter-paragraph.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.letter-salutation {
+  margin-bottom: 1.7rem;
+  font-weight: 720;
+}
+.letter-closing {
+  margin-top: 2.8rem;
+  margin-bottom: 0;
+}
+.letter-closing > p { margin: 0 0 1.3rem; }
+.letter-birthday {
+  padding-top: .35rem;
+  font-family: ui-rounded, "SF Pro Rounded", "Arial Rounded MT Bold", var(--font-body);
+  font-size: clamp(1.28rem, 5.4vw, 1.8rem);
+  font-weight: 720;
+  line-height: 1.35;
+  letter-spacing: -.025em;
+}
+.letter-signature {
+  margin-top: 2.2rem !important;
+  text-align: right;
+  font-weight: 650;
+}
+
+.letter-continue-button {
+  display: flex;
+  margin: 2.8rem auto .3rem;
+}
+
+@keyframes letterIntroReveal {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes letterReaderIn {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (min-width: 821px) {
+  .letter-reader { padding-block: 2.4rem 3.2rem; }
+  .letter-paper { border-radius: 20px; }
+}
+@media (max-width: 380px) {
+  .letter-paper { padding-inline: 1.15rem; }
+  .letter-paragraph { font-size: .88rem; line-height: 1.82; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .page-letter,
+  .letter-intro,
+  .letter-paragraph { transition: none !important; }
+  .letter-intro-title,
+  .letter-intro-copy,
+  .letter-open-button,
+  .letter-reader.is-entering { animation: none !important; opacity: 1; transform: none; }
+}
