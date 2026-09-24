@@ -118,9 +118,9 @@
 .letter-reader.is-entering { animation: letterReaderIn 520ms ease both; }
 
 .letter-paper {
-  width: min(90vw, 610px);
+  width: min(86vw, 610px);
   margin: 0 auto;
-  padding: clamp(2.4rem, 9vw, 4rem) clamp(1.55rem, 7vw, 3.6rem) 2.7rem;
+  padding: clamp(2.4rem, 9vw, 4rem) clamp(1.15rem, 5vw, 3rem) 2.7rem;
   border: 1px solid rgba(51, 45, 41, .055);
   border-radius: 18px;
   background: rgba(255, 253, 249, .9);
@@ -133,6 +133,9 @@
   font-size: clamp(.91rem, 3.65vw, 1.02rem);
   line-height: 1.9;
   letter-spacing: .01em;
+  word-break: normal;
+  overflow-wrap: normal;
+  line-break: strict;
   opacity: 0;
   transform: translateY(6px);
   transition: opacity 560ms ease, transform 560ms ease;
