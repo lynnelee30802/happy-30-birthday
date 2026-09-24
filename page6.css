@@ -74,7 +74,7 @@
   color: var(--color-ink-soft, #756B63);
   font-size: clamp(.9rem, 3.7vw, 1.05rem);
   line-height: 1.5;
-  animation: letterIntroReveal 420ms ease 560ms forwards;
+  animation: letterIntroReveal 420ms ease 760ms forwards;
 }
 .letter-open-button,
 .letter-continue-button {
@@ -95,7 +95,7 @@
 }
 .letter-open-button {
   margin-top: 1.65rem;
-  animation: letterIntroReveal 420ms ease 1500ms forwards;
+  animation: letterIntroReveal 420ms ease 1700ms forwards;
 }
 .letter-open-button:active,
 .letter-continue-button:active { transform: scale(.97); }
@@ -118,7 +118,7 @@
 .letter-reader.is-entering { animation: letterReaderIn 520ms ease both; }
 
 .letter-paper {
-  width: min(88vw, 610px);
+  width: min(84vw, 610px);
   margin: 0 auto;
   padding: clamp(2.4rem, 9vw, 4rem) clamp(1.55rem, 7vw, 3.6rem) 2.7rem;
   border: 1px solid rgba(51, 45, 41, .055);
