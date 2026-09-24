@@ -300,19 +300,31 @@ body {
   }
 
   .opening-copy {
+    position: relative;
     margin: 0 0 .5rem;
     text-align: center;
     transform: translateY(-1.4rem);
   }
 
   .opening-name {
-    margin: 0 0 .55rem;
+    position: absolute;
+    z-index: 3;
+    top: -1.25rem;
+    left: max(.25rem, calc(50% - 10.2rem));
+    margin: 0;
+    padding: .38rem .65rem .34rem;
+    border: 1px solid rgba(166, 110, 74, .18);
+    border-radius: .55rem;
+    background: rgba(255, 253, 249, .94);
+    box-shadow: 0 5px 12px rgba(75, 59, 46, .08);
     color: var(--color-caramel, #A66E4A);
     font-family: ui-rounded, "SF Pro Rounded", "Arial Rounded MT Bold", var(--font-body);
-    font-size: .72rem;
+    font-size: .68rem;
     font-weight: 650;
-    letter-spacing: .08em;
-    transform: rotate(-4deg);
+    line-height: 1;
+    letter-spacing: .045em;
+    transform: rotate(-7deg);
+    white-space: nowrap;
   }
 
   .page-opening .display-title {
