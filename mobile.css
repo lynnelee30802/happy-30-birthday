@@ -296,7 +296,7 @@ body {
     min-height: 100svh;
     margin: 0 auto;
     padding: max(2.5rem, env(safe-area-inset-top)) 1rem max(1.5rem, env(safe-area-inset-bottom));
-    transform: translateY(3.5svh);
+    transform: translateY(9svh);
   }
 
   .opening-copy {
@@ -422,7 +422,7 @@ body {
 @media (max-height: 740px) and (max-width: 820px) {
   .opening-shell {
     padding-top: max(1.5rem, env(safe-area-inset-top));
-    transform: translateY(2svh);
+    transform: translateY(5svh);
   }
 
   .opening-copy {
