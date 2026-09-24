@@ -11,7 +11,7 @@
 }
 .page-ending[hidden] { display: none !important; }
 .page-ending.is-entering { opacity: 0; }
-.ending-title, .ending-copy, .ending-heart, .ending-last {
+.ending-title, .ending-copy, .ending-heart, .ending-last, .ending-by {
   opacity: 0;
   transform: translateY(5px);
 }
@@ -19,6 +19,7 @@
 .page-ending.is-revealed .ending-copy { animation: endingReveal 560ms ease 620ms forwards; }
 .page-ending.is-revealed .ending-heart { animation: endingReveal 520ms ease 980ms forwards; }
 .page-ending.is-revealed .ending-last { animation: endingReveal 560ms ease 1280ms forwards; }
+.page-ending.is-revealed .ending-by { animation: endingReveal 520ms ease 1540ms forwards; }
 .ending-title {
   margin: 0;
   font-family: ui-rounded, "SF Pro Rounded", "Arial Rounded MT Bold", var(--font-body);
@@ -43,11 +44,17 @@
   color: rgba(117, 107, 99, .72);
   font-size: clamp(.78rem, 3.25vw, .9rem);
 }
+.ending-by {
+  margin: 1.65rem 0 0;
+  color: rgba(117, 107, 99, .52);
+  font-size: .68rem;
+  letter-spacing: .035em;
+}
 @keyframes endingReveal {
   to { opacity: 1; transform: translateY(0); }
 }
 @media (prefers-reduced-motion: reduce) {
-  .ending-title, .ending-copy, .ending-heart, .ending-last {
+  .ending-title, .ending-copy, .ending-heart, .ending-last, .ending-by {
     opacity: 1;
     transform: none;
     animation: none !important;
