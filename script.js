@@ -307,3 +307,70 @@ becauseNextButtons.forEach((button) => {
     }
   });
 });
+
+
+/* Page 5 — future wishlist. */
+const becauseContinueButton = document.querySelector('#becauseContinueButton');
+const futurePage = document.querySelector('#future-plans');
+const futureContent = document.querySelector('#futureContent');
+const futureOptions = Array.from(document.querySelectorAll('.future-option'));
+const futureSaveButton = document.querySelector('#futureSaveButton');
+const futureResult = document.querySelector('#futureResult');
+const futureEaster = document.querySelector('#futureEaster');
+
+if (becauseContinueButton && becausePage && futurePage) {
+  becauseContinueButton.addEventListener('click', () => {
+    becausePage.style.transition = 'opacity 420ms ease';
+    becausePage.style.opacity = '0';
+
+    window.setTimeout(() => {
+      becausePage.hidden = true;
+      becausePage.style.display = 'none';
+      becausePage.style.removeProperty('transition');
+      becausePage.style.removeProperty('opacity');
+
+      futurePage.hidden = false;
+      futurePage.classList.add('is-entering');
+      futurePage.scrollIntoView({ behavior: 'auto', block: 'start' });
+
+      window.requestAnimationFrame(() => {
+        window.requestAnimationFrame(() => {
+          futurePage.classList.remove('is-entering');
+        });
+      });
+    }, 420);
+  });
+}
+
+futureOptions.forEach((option) => {
+  option.addEventListener('click', () => {
+    const selected = option.classList.toggle('is-selected');
+    option.setAttribute('aria-pressed', String(selected));
+
+    if (futureSaveButton) {
+      futureSaveButton.disabled = !futureOptions.some((item) => item.classList.contains('is-selected'));
+    }
+  });
+});
+
+if (futureSaveButton && futureContent && futureResult) {
+  futureSaveButton.addEventListener('click', () => {
+    const selectedCount = futureOptions.filter((item) => item.classList.contains('is-selected')).length;
+    if (!selectedCount) return;
+
+    futureSaveButton.disabled = true;
+    futureContent.classList.add('is-leaving');
+
+    window.setTimeout(() => {
+      futureContent.hidden = true;
+      futureSaveButton.hidden = true;
+      futureResult.hidden = false;
+
+      if (futureEaster) {
+        futureEaster.hidden = selectedCount !== futureOptions.length;
+      }
+
+      futureResult.classList.add('is-entering');
+    }, 320);
+  });
+}
