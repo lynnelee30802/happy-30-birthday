@@ -456,3 +456,32 @@ if (letterOpenButton && letterIntro && letterReader && letterPage) {
     }, 380);
   });
 }
+
+
+const letterContinueButton = document.querySelector('#letterContinueButton');
+const endingPage = document.querySelector('#birthday-ending');
+
+if (letterContinueButton && letterPage && endingPage) {
+  letterContinueButton.addEventListener('click', () => {
+    letterPage.style.transition = 'opacity 420ms ease';
+    letterPage.style.opacity = '0';
+
+    window.setTimeout(() => {
+      letterPage.hidden = true;
+      letterPage.style.display = 'none';
+      letterPage.style.removeProperty('transition');
+      letterPage.style.removeProperty('opacity');
+
+      endingPage.hidden = false;
+      endingPage.classList.add('is-entering');
+      endingPage.scrollIntoView({ behavior: 'auto', block: 'start' });
+
+      window.requestAnimationFrame(() => {
+        window.requestAnimationFrame(() => {
+          endingPage.classList.remove('is-entering');
+          endingPage.classList.add('is-revealed');
+        });
+      });
+    }, 420);
+  });
+}
