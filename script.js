@@ -359,6 +359,7 @@ if (futureSaveButton && futureContent && futureResult) {
     if (!selectedCount) return;
 
     futureSaveButton.disabled = true;
+    futureSaveButton.hidden = true;
     futureContent.classList.add('is-leaving');
 
     window.setTimeout(() => {
