@@ -290,16 +290,16 @@ body {
   .opening-shell {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     width: 100%;
     max-width: 520px;
     min-height: 100svh;
     margin: 0 auto;
-    padding: max(2.5rem, env(safe-area-inset-top)) 1rem max(1.5rem, env(safe-area-inset-bottom));
+    padding: max(4.5rem, 10svh) 1.15rem max(1.4rem, env(safe-area-inset-bottom));
   }
 
   .opening-copy {
-    margin: 0 0 1rem;
+    margin: 0 0 .65rem;
     text-align: center;
   }
 
@@ -315,74 +315,35 @@ body {
   }
 
   .opening-lead {
-    margin: .8rem 0 0;
+    margin: 1.55rem 0 0;
     font-size: .9rem;
     line-height: 1.55;
   }
 
   .opening-visual {
-    width: min(72vw, 285px);
-    margin: 0 auto;
+    width: min(76vw, 310px);
+    margin: .3rem auto 0;
     transform: none;
   }
 
-  .opening-photo {
+  .opening-illustration {
+    display: block;
     width: 100%;
-    aspect-ratio: 4 / 5.1;
-    padding: 6px 6px 34px;
-    border-width: 5px;
-    border-radius: 8px;
-    box-shadow: 0 18px 38px rgba(73, 58, 48, .13);
-  }
-
-  .opening-photo img {
-    object-position: 50% 48%;
-  }
-
-  .opening-photo figcaption {
-    bottom: 10px;
-    font-size: .72rem;
-  }
-
-  .photo-sticker--top {
-    top: -.34rem;
-    right: -.38rem;
-    padding: .54rem .72rem;
-    font-size: .62rem;
-    transform: rotate(8deg);
-  }
-
-  .doodle--star {
-    top: 14%;
-    left: -.25rem;
-    font-size: 1.25rem;
-  }
-
-  .doodle--spark {
-    right: -.25rem;
-    bottom: 18%;
-    font-size: 1.55rem;
-  }
-
-  .doodle--corner-star {
-    left: -.1rem;
-    bottom: 4%;
-    color: #81978B;
-    font-size: 1.15rem;
-    transform: rotate(-14deg);
+    height: auto;
+    max-height: 47svh;
+    object-fit: contain;
   }
 
   #beginButton.opening-begin {
     position: static;
     display: inline-flex;
     align-self: center;
-    width: auto;
-    min-width: 0;
-    min-height: 34px;
-    margin: 1.05rem auto 0;
-    padding: .48rem .82rem;
-    gap: .38rem;
-    font-size: .7rem;
+    width: min(62vw, 245px);
+    min-height: 50px;
+    margin: .7rem auto 0;
+    padding: .8rem 1.4rem;
+    gap: .55rem;
+    font-size: .92rem;
     font-weight: 650;
     transform: none;
   }
@@ -396,8 +357,8 @@ body {
   }
 
   .opening-begin .button-arrow {
-    width: 14px;
-    height: 14px;
+    width: 17px;
+    height: 17px;
   }
 
   .opening-blob--pink {
@@ -453,20 +414,29 @@ body {
 
 @media (max-height: 740px) and (max-width: 820px) {
   .opening-shell {
-    padding-top: max(1.5rem, env(safe-area-inset-top));
-    padding-bottom: max(1rem, env(safe-area-inset-bottom));
+    padding-top: max(2.5rem, 6svh);
   }
 
   .opening-copy {
-    margin-bottom: .7rem;
+    margin-bottom: .35rem;
+  }
+
+  .opening-lead {
+    margin-top: 1.15rem;
   }
 
   .opening-visual {
-    width: min(60vw, 240px);
+    width: min(62vw, 245px);
+  }
+
+  .opening-illustration {
+    max-height: 41svh;
   }
 
   #beginButton.opening-begin {
-    margin-top: .8rem;
+    width: min(60vw, 225px);
+    min-height: 46px;
+    margin-top: .45rem;
   }
 
   .loading-shell {
