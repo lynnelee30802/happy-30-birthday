@@ -1,0 +1,259 @@
+/* =========================================================
+   PAGE 5 — STILL MORE TO COME
+   Interactive future wishlist. Pages 1–4 untouched.
+   ========================================================= */
+
+.page-future[hidden] { display: none !important; }
+
+.page-future {
+  position: relative;
+  width: 100%;
+  height: 100svh;
+  overflow: hidden;
+  background: var(--color-cream, #F7F1E8);
+  color: var(--color-ink, #332D29);
+  opacity: 1;
+  transition: opacity 420ms ease;
+  isolation: isolate;
+}
+
+.page-future.is-entering { opacity: 0; }
+
+.future-blob {
+  position: absolute;
+  z-index: -1;
+  border-radius: 999px;
+  pointer-events: none;
+}
+.future-blob--pink {
+  top: -110px;
+  left: -125px;
+  width: min(74vw, 340px);
+  aspect-ratio: 1;
+  background: rgba(239, 217, 215, .66);
+}
+.future-blob--blue {
+  right: -125px;
+  bottom: -120px;
+  width: min(82vw, 370px);
+  aspect-ratio: 1;
+  background: rgba(220, 231, 234, .72);
+}
+
+.future-shell {
+  position: relative;
+  width: min(100%, 720px);
+  height: 100%;
+  margin: 0 auto;
+  padding: max(2.2rem, env(safe-area-inset-top)) 1.15rem max(4.8rem, calc(env(safe-area-inset-bottom) + 3.5rem));
+}
+
+.future-content {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+  transition: opacity 320ms ease, transform 320ms ease;
+}
+
+.future-header {
+  flex: 0 0 auto;
+  margin-bottom: 1.35rem;
+  text-align: center;
+}
+.future-header h2 {
+  margin: 0;
+  font-family: ui-rounded, "SF Pro Rounded", "Arial Rounded MT Bold", var(--font-body);
+  font-size: clamp(2rem, 8vw, 3.5rem);
+  font-weight: 720;
+  line-height: 1.02;
+  letter-spacing: -.045em;
+}
+.future-question {
+  margin: .75rem 0 0;
+  color: var(--color-ink-soft, #756B63);
+  font-size: clamp(.9rem, 3.6vw, 1.05rem);
+  line-height: 1.5;
+}
+.future-hint {
+  margin: .16rem 0 0;
+  color: rgba(117, 107, 99, .62);
+  font-size: .7rem;
+  font-style: italic;
+}
+
+.future-options {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: .68rem;
+}
+
+.future-option {
+  position: relative;
+  display: flex;
+  min-width: 0;
+  min-height: 116px;
+  padding: .85rem .72rem .78rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(51, 45, 41, .08);
+  border-radius: 17px;
+  color: var(--color-ink, #332D29);
+  background: rgba(255, 253, 249, .72);
+  box-shadow: 0 8px 22px rgba(73, 58, 48, .055);
+  text-align: center;
+  cursor: pointer;
+  transition: transform 180ms ease, background-color 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+  -webkit-tap-highlight-color: transparent;
+}
+.future-option:active { transform: scale(.975); }
+.future-option.is-selected {
+  background: rgba(220, 228, 215, .82);
+  border-color: rgba(129, 151, 139, .38);
+  box-shadow: 0 8px 22px rgba(73, 58, 48, .08);
+}
+.future-check {
+  position: absolute;
+  top: .48rem;
+  right: .55rem;
+  display: grid;
+  width: 20px;
+  height: 20px;
+  place-items: center;
+  border-radius: 50%;
+  color: var(--color-paper, #FFFDF9);
+  background: #81978B;
+  font-size: .68rem;
+  font-weight: 800;
+  opacity: 0;
+  transform: scale(.7);
+  transition: opacity 160ms ease, transform 160ms ease;
+}
+.future-option.is-selected .future-check {
+  opacity: 1;
+  transform: scale(1);
+}
+.future-icon {
+  display: block;
+  margin-bottom: .48rem;
+  font-size: 1.48rem;
+  line-height: 1;
+}
+.future-option-title {
+  display: block;
+  font-size: clamp(.77rem, 3.2vw, .9rem);
+  font-weight: 720;
+  line-height: 1.18;
+}
+.future-option-copy {
+  display: block;
+  margin-top: .32rem;
+  color: var(--color-ink-soft, #756B63);
+  font-size: clamp(.63rem, 2.65vw, .72rem);
+  line-height: 1.38;
+}
+
+.future-save-button,
+.future-continue-button {
+  display: inline-flex;
+  align-items: center;
+  gap: .38rem;
+  min-height: 34px;
+  padding: .48rem .82rem;
+  border-radius: 999px;
+  color: var(--color-ink, #332D29);
+  background: rgba(255, 253, 249, .78);
+  box-shadow: 0 5px 14px rgba(73, 58, 48, .07);
+  font-size: .7rem;
+  font-weight: 650;
+  cursor: pointer;
+}
+.future-save-button {
+  position: absolute;
+  left: 50%;
+  bottom: max(1.35rem, calc(env(safe-area-inset-bottom) + .85rem));
+  transform: translateX(-50%);
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+.future-save-button:disabled {
+  opacity: .34;
+  cursor: default;
+}
+.future-save-button:not(:disabled):active {
+  transform: translateX(-50%) scale(.97);
+}
+
+.future-content.is-leaving {
+  opacity: 0;
+  transform: translateY(-4px);
+}
+
+.future-result {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  padding: 2rem 1.25rem 5rem;
+  text-align: center;
+}
+.future-result[hidden] { display: none !important; }
+.future-result.is-entering {
+  animation: futureResultIn 460ms ease both;
+}
+.future-result-title {
+  margin: 0;
+  font-family: ui-rounded, "SF Pro Rounded", "Arial Rounded MT Bold", var(--font-body);
+  font-size: clamp(2rem, 8.5vw, 3.6rem);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -.04em;
+}
+.future-result-easter {
+  margin: .8rem 0 0;
+  color: var(--color-caramel, #A66E4A);
+  font-size: .84rem;
+  font-style: italic;
+}
+.future-continue-button {
+  margin-top: 1.7rem;
+}
+
+@keyframes futureResultIn {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (min-width: 821px) {
+  .future-shell {
+    width: min(100%, 860px);
+    padding-inline: var(--page-gutter, 5rem);
+  }
+  .future-options { gap: .85rem; }
+  .future-option { min-height: 126px; }
+}
+
+@media (max-height: 700px) and (max-width: 820px) {
+  .future-shell {
+    padding-top: max(1.25rem, env(safe-area-inset-top));
+    padding-bottom: max(4.25rem, calc(env(safe-area-inset-bottom) + 3.2rem));
+  }
+  .future-header { margin-bottom: .85rem; }
+  .future-header h2 { font-size: clamp(1.75rem, 7vw, 2.4rem); }
+  .future-question { margin-top: .5rem; font-size: .82rem; }
+  .future-options { gap: .48rem; }
+  .future-option { min-height: 96px; padding: .65rem .55rem .58rem; border-radius: 14px; }
+  .future-icon { margin-bottom: .34rem; font-size: 1.25rem; }
+  .future-option-title { font-size: .7rem; }
+  .future-option-copy { margin-top: .22rem; font-size: .58rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-future,
+  .future-content,
+  .future-option,
+  .future-check,
+  .future-save-button { transition: none !important; }
+  .future-result.is-entering { animation: none !important; }
+}
