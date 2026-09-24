@@ -309,22 +309,36 @@ body {
   .opening-name {
     position: absolute;
     z-index: 3;
-    top: -1.25rem;
-    left: max(.25rem, calc(50% - 10.2rem));
+    top: -1.05rem;
+    left: max(.4rem, calc(50% - 10.15rem));
     margin: 0;
-    padding: .38rem .65rem .34rem;
-    border: 1px solid rgba(166, 110, 74, .18);
-    border-radius: .55rem;
-    background: rgba(255, 253, 249, .94);
-    box-shadow: 0 5px 12px rgba(75, 59, 46, .08);
+    padding: .42rem .72rem .36rem .62rem;
+    border: 0;
+    border-radius: .32rem .58rem .28rem .5rem;
+    background: rgba(255, 253, 249, .9);
+    box-shadow: 0 4px 10px rgba(75, 59, 46, .055);
     color: var(--color-caramel, #A66E4A);
     font-family: ui-rounded, "SF Pro Rounded", "Arial Rounded MT Bold", var(--font-body);
     font-size: .68rem;
     font-weight: 650;
     line-height: 1;
-    letter-spacing: .045em;
-    transform: rotate(-14deg);
+    letter-spacing: .035em;
+    transform: rotate(-13deg);
+    transform-origin: 18% 70%;
     white-space: nowrap;
+  }
+
+  .opening-name::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: -.18rem;
+    left: 42%;
+    width: 1.65rem;
+    height: .38rem;
+    border-radius: .08rem;
+    background: rgba(220, 231, 234, .68);
+    transform: translateX(-50%) rotate(4deg);
   }
 
   .page-opening .display-title {
