@@ -111,16 +111,16 @@
 .letter-reader {
   width: 100%;
   min-height: 100svh;
-  padding: max(1.4rem, env(safe-area-inset-top)) .9rem max(2rem, env(safe-area-inset-bottom));
+  padding: max(2rem, env(safe-area-inset-top)) 1.25rem max(3rem, env(safe-area-inset-bottom));
   overflow: visible;
 }
 .letter-reader[hidden] { display: none !important; }
 .letter-reader.is-entering { animation: letterReaderIn 520ms ease both; }
 
 .letter-paper {
-  width: min(100%, 660px);
+  width: min(88vw, 610px);
   margin: 0 auto;
-  padding: clamp(2rem, 8vw, 3.8rem) clamp(1.35rem, 6vw, 3.6rem) 2.2rem;
+  padding: clamp(2.4rem, 9vw, 4rem) clamp(1.55rem, 7vw, 3.6rem) 2.7rem;
   border: 1px solid rgba(51, 45, 41, .055);
   border-radius: 18px;
   background: rgba(255, 253, 249, .9);
@@ -153,7 +153,7 @@
 .letter-birthday {
   padding-top: .35rem;
   font-family: ui-rounded, "SF Pro Rounded", "Arial Rounded MT Bold", var(--font-body);
-  font-size: clamp(1.28rem, 5.4vw, 1.8rem);
+  font-size: clamp(1.08rem, 4.5vw, 1.48rem);
   font-weight: 720;
   line-height: 1.35;
   letter-spacing: -.025em;
@@ -164,9 +164,14 @@
   font-weight: 650;
 }
 
-.letter-continue-button {
+.letter-after {
   display: flex;
-  margin: 2.8rem auto .3rem;
+  justify-content: center;
+  padding: 2.3rem 0 .4rem;
+}
+.letter-continue-button {
+  display: inline-flex;
+  margin: 0;
 }
 
 @keyframes letterIntroReveal {
