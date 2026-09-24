@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="./mobile.css?v=20260814-02" />
   <link rel="stylesheet" href="./page3.css?v=20260923-01" />
   <link rel="stylesheet" href="./page4.css?v=20260924-08" />
+  <link rel="stylesheet" href="./page5.css?v=20260924-01" />
 </head>
 <body>
   <main id="app">
@@ -178,12 +179,78 @@
             <p class="award-stars" aria-label="5 stars">★★★★★</p>
             <p class="award-copy">從日常廢話到人生大事，<br />什麼都可以跟妳說！</p>
           </div>
+          <button class="because-next-button because-continue-button" id="becauseContinueButton" type="button"><span>Continue</span><span aria-hidden="true">→</span></button>
         </article>
       </div>
       </div>
     </section>
+
+    <!-- Page 5 | Still More to Come -->
+    <section class="page-future" id="future-plans" aria-labelledby="future-title" hidden>
+      <div class="future-blob future-blob--pink" aria-hidden="true"></div>
+      <div class="future-blob future-blob--blue" aria-hidden="true"></div>
+
+      <div class="future-shell">
+        <div class="future-content" id="futureContent">
+          <header class="future-header">
+            <h2 id="future-title">Still More to Come</h2>
+            <p class="future-question">What should we do together next?</p>
+            <p class="future-hint">Pick your favorites.</p>
+          </header>
+
+          <div class="future-options" id="futureOptions" aria-label="Future wishlist">
+            <button class="future-option" type="button" aria-pressed="false">
+              <span class="future-check" aria-hidden="true">✓</span>
+              <span class="future-icon" aria-hidden="true">✈️</span>
+              <span class="future-option-title">A New Adventure</span>
+              <span class="future-option-copy">去一個我們都沒去過的地方</span>
+            </button>
+            <button class="future-option" type="button" aria-pressed="false">
+              <span class="future-check" aria-hidden="true">✓</span>
+              <span class="future-icon" aria-hidden="true">🍽️</span>
+              <span class="future-option-title">Something Delicious</span>
+              <span class="future-option-copy">找間想吃很久的餐廳</span>
+            </button>
+            <button class="future-option" type="button" aria-pressed="false">
+              <span class="future-check" aria-hidden="true">✓</span>
+              <span class="future-icon" aria-hidden="true">📷</span>
+              <span class="future-option-title">Photos We’ll Keep</span>
+              <span class="future-option-copy">認真拍一次好看的照片</span>
+            </button>
+            <button class="future-option" type="button" aria-pressed="false">
+              <span class="future-check" aria-hidden="true">✓</span>
+              <span class="future-icon" aria-hidden="true">☕</span>
+              <span class="future-option-title">A Slow Day Together</span>
+              <span class="future-option-copy">找間咖啡廳，聊天聊一下午</span>
+            </button>
+            <button class="future-option" type="button" aria-pressed="false">
+              <span class="future-check" aria-hidden="true">✓</span>
+              <span class="future-icon" aria-hidden="true">🎨</span>
+              <span class="future-option-title">Try Something New</span>
+              <span class="future-option-copy">一起體驗一件沒做過的事</span>
+            </button>
+            <button class="future-option" type="button" aria-pressed="false">
+              <span class="future-check" aria-hidden="true">✓</span>
+              <span class="future-icon" aria-hidden="true">🎉</span>
+              <span class="future-option-title">Something to Celebrate</span>
+              <span class="future-option-copy">下一個值得慶祝的時刻，也要一起過</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="future-result" id="futureResult" aria-live="polite" hidden>
+          <p class="future-result-title">Okay, it’s a plan. ♡</p>
+          <p class="future-result-easter" id="futureEaster" hidden>All six? I like the ambition.</p>
+          <button class="future-continue-button" type="button"><span>Continue</span><span aria-hidden="true">→</span></button>
+        </div>
+
+        <button class="future-save-button" id="futureSaveButton" type="button" disabled>
+          <span>Save Our Plans</span><span aria-hidden="true">→</span>
+        </button>
+      </div>
+    </section>
   </main>
 
-  <script src="./script.js?v=20260924-02"></script>
+  <script src="./script.js?v=20260924-03"></script>
 </body>
 </html>
