@@ -9,7 +9,8 @@
   position: relative;
   width: 100%;
   min-height: 100svh;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: visible;
   background: var(--color-cream, #F7F1E8);
   color: var(--color-ink, #332D29);
   opacity: 1;
@@ -62,18 +63,18 @@
 .letter-intro-title {
   margin: 0;
   font-family: ui-rounded, "SF Pro Rounded", "Arial Rounded MT Bold", var(--font-body);
-  font-size: clamp(2.1rem, 9vw, 3.8rem);
-  font-weight: 720;
+  font-size: clamp(1.65rem, 7vw, 2.65rem);
+  font-weight: 650;
   line-height: 1.04;
   letter-spacing: -.045em;
-  animation: letterIntroReveal 520ms ease 140ms forwards;
+  animation: letterIntroReveal 420ms ease 80ms forwards;
 }
 .letter-intro-copy {
   margin: 1.05rem 0 0;
   color: var(--color-ink-soft, #756B63);
   font-size: clamp(.9rem, 3.7vw, 1.05rem);
   line-height: 1.5;
-  animation: letterIntroReveal 520ms ease 940ms forwards;
+  animation: letterIntroReveal 420ms ease 560ms forwards;
 }
 .letter-open-button,
 .letter-continue-button {
@@ -94,7 +95,7 @@
 }
 .letter-open-button {
   margin-top: 1.65rem;
-  animation: letterIntroReveal 480ms ease 2140ms forwards;
+  animation: letterIntroReveal 420ms ease 1500ms forwards;
 }
 .letter-open-button:active,
 .letter-continue-button:active { transform: scale(.97); }
