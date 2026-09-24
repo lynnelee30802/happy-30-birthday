@@ -345,12 +345,12 @@ body {
     position: static;
     display: inline-flex;
     align-self: center;
-    width: min(70vw, 260px);
-    min-height: 56px;
-    margin: 2.15rem auto 0;
-    padding: .95rem 1.6rem;
+    width: min(62vw, 235px);
+    min-height: 50px;
+    margin: 3rem auto 0;
+    padding: .8rem 1.4rem;
     gap: .55rem;
-    font-size: 1rem;
+    font-size: .94rem;
     font-weight: 650;
     transform: none;
   }
@@ -385,14 +385,14 @@ body {
   .reveal {
     opacity: 0;
     transform: translateY(5px);
-    animation: openingReveal 1350ms cubic-bezier(.22, .78, .22, 1) forwards;
+    animation: openingReveal 1750ms cubic-bezier(.22, .78, .22, 1) forwards;
     will-change: opacity, transform;
   }
 
-  .reveal--1 { animation-delay: 80ms; }
-  .reveal--2 { animation-delay: 150ms; }
-  .reveal--4 { animation-delay: 300ms; }
-  .reveal--5 { animation-delay: 430ms; }
+  .reveal--1 { animation-delay: 180ms; }
+  .reveal--2 { animation-delay: 700ms; }
+  .reveal--4 { animation-delay: 1350ms; }
+  .reveal--5 { animation-delay: 2050ms; }
 
   .opening-visual.reveal {
     transform: translateY(8px) scale(.996);
@@ -400,7 +400,7 @@ body {
 
   .opening-visual.reveal.reveal--4 {
     animation-name: openingPhotoReveal;
-    animation-duration: 1500ms;
+    animation-duration: 1900ms;
   }
 
   .reveal-sticker {
@@ -439,9 +439,9 @@ body {
   }
 
   #beginButton.opening-begin {
-    width: min(64vw, 230px);
-    min-height: 48px;
-    margin-top: 1.15rem;
+    width: min(58vw, 215px);
+    min-height: 46px;
+    margin-top: 1.8rem;
   }
 
   .loading-shell {
