@@ -375,3 +375,80 @@ if (futureSaveButton && futureContent && futureResult) {
     }, 320);
   });
 }
+
+
+/* Page 6 — quiet intro and naturally scrolling birthday letter. */
+const futureContinueButton = document.querySelector('.future-continue-button');
+const letterPage = document.querySelector('#birthday-letter');
+const letterIntro = document.querySelector('#letterIntro');
+const letterOpenButton = document.querySelector('#letterOpenButton');
+const letterReader = document.querySelector('#letterReader');
+const letterParagraphs = Array.from(document.querySelectorAll('.letter-paragraph'));
+
+if (futureContinueButton && futurePage && letterPage) {
+  futureContinueButton.addEventListener('click', () => {
+    futurePage.style.transition = 'opacity 420ms ease';
+    futurePage.style.opacity = '0';
+
+    window.setTimeout(() => {
+      futurePage.hidden = true;
+      futurePage.style.display = 'none';
+      futurePage.style.removeProperty('transition');
+      futurePage.style.removeProperty('opacity');
+
+      letterPage.hidden = false;
+      letterPage.classList.add('is-entering');
+      letterPage.scrollIntoView({ behavior: 'auto', block: 'start' });
+
+      window.requestAnimationFrame(() => {
+        window.requestAnimationFrame(() => {
+          letterPage.classList.remove('is-entering');
+        });
+      });
+    }, 420);
+  });
+}
+
+let letterObserver = null;
+
+function startLetterReveal() {
+  if (!letterParagraphs.length) return;
+
+  if (!('IntersectionObserver' in window)) {
+    letterParagraphs.forEach((paragraph) => paragraph.classList.add('is-visible'));
+    return;
+  }
+
+  if (letterObserver) letterObserver.disconnect();
+
+  letterObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.18,
+    rootMargin: '0px 0px -7% 0px',
+  });
+
+  letterParagraphs.forEach((paragraph) => letterObserver.observe(paragraph));
+}
+
+if (letterOpenButton && letterIntro && letterReader && letterPage) {
+  letterOpenButton.addEventListener('click', () => {
+    if (letterIntro.classList.contains('is-leaving')) return;
+
+    letterIntro.classList.add('is-leaving');
+    letterOpenButton.disabled = true;
+
+    window.setTimeout(() => {
+      letterIntro.hidden = true;
+      letterReader.hidden = false;
+      letterReader.classList.add('is-entering');
+      window.scrollTo({ top: letterPage.offsetTop, left: 0, behavior: 'auto' });
+      startLetterReveal();
+    }, 380);
+  });
+}
